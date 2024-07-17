@@ -31,7 +31,7 @@ export default function Home() {
 
       <div className="w-full flex flex-col justify-center items-center gap-5">
         {fontComponents.map(({ title, fontStyle }) => (
-          <FontDisplayWrapper>
+          <FontDisplayWrapper key={title}>
             <FontDisplay
               testText={testText}
               fontType={fontStyle}

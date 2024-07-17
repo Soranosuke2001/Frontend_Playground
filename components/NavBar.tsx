@@ -60,6 +60,7 @@ const NavBar = () => {
               <ul className="grid gap-3 p-6 w-[500px]">
                 {navComponents.map(({ title, href, description }) => (
                   <ListItem
+                    key={title}
                     href={href}
                     title={title}
                   >
