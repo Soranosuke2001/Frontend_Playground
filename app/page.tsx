@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 
 import FontDisplayWrapper from "@/components/FontDisplayWrapper";
 import FontDisplay from "@/components/FontDisplay";
-import { cervanttisFont, rolestFont, yujiSyukuFont } from "./fonts";
+import { fontComponents } from "@/lib/constants";
 
 export default function Home() {
   const [testText, setTestText] = useState<string>("");
@@ -30,29 +30,15 @@ export default function Home() {
       </div>
 
       <div className="w-full flex flex-col justify-center items-center gap-5">
-        <FontDisplayWrapper>
-          <FontDisplay
-            testText={testText}
-            fontType={rolestFont.className}
-            title="Rolest"
-          />
-        </FontDisplayWrapper>
-
-        <FontDisplayWrapper>
-          <FontDisplay
-            testText={testText}
-            fontType={cervanttisFont.className}
-            title="Cervanttis"
-          />
-        </FontDisplayWrapper>
-
-        <FontDisplayWrapper>
-          <FontDisplay
-            testText={testText}
-            fontType={yujiSyukuFont.className}
-            title="Yuji Syuku"
-          />
-        </FontDisplayWrapper>
+        {fontComponents.map(({ title, fontStyle }) => (
+          <FontDisplayWrapper>
+            <FontDisplay
+              testText={testText}
+              fontType={fontStyle}
+              title={title}
+            />
+          </FontDisplayWrapper>
+        ))}
       </div>
     </main>
   );
